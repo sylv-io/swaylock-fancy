@@ -57,14 +57,7 @@ Usage
                          Note: this option will not lock the screen, it displays
                          the list and exits immediately.
 
-        -n, --nofork     Do not fork swaylock after starting.
-
-        --               Must be last option. Set command to use for taking a
-                         screenshot. Default is 'import -window root'. Using 'scrot'
-                         or 'maim' will increase script speed and allow setting
-                         custom flags like haing a delay.
-
-example: ```swaylock-fancy -gpf Comic-Sans-MS -- scrot -z```
+example: ```swaylock-fancy -gpf Comic-Sans-MS```
 
 Extras
 ------
@@ -95,22 +88,4 @@ Systemd Unit file example (edit for your own use):
 
 Multiple Monitors
 -----------------
-Not supported currently.
-
-Static image
-------------
-If you would like to run `swaylock-color` with a static image in the style of
-i3lock-fancy, run `convert` from image magick directly on the background image
-you want to use. Then specify the result `newimage.png` to `swaylock -i`:
-```
-#!/bin/sh
-# Add a lock icon and text to the center of an image
-convert /path/to/background.png -font Liberation-Sans \
-    -pointsize 26 -fill white -gravity center \
-    -annotate +0+160 "Type Password to Unlock" lock.png \
-    -gravity center -composite newimage.png
-```
-
-```
-swaylock -i newimage.png
-```
+Work in progress

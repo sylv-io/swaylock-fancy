@@ -32,11 +32,6 @@ Then change to the directory and run make.
     cd swaylock-fancy
     sudo make install
 
-**IMPORTANT NOTE: the way to install swaylock-fancy has changed! If you are a
-  package maintainer or previously installed manually you may have to review
-  and update your configurations. The new change simplifies a lot of
-  things so updates will be easier in the future.**
-
 ### The following distro's have packages you can use to install:
 * Arch Linux: https://aur.archlinux.org/packages/swaylock-fancy-git/
 

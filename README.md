@@ -9,7 +9,7 @@ Dependencies
 ------------
 * <s>[i3lock-color-git](https://github.com/eBrnd/i3lock-color)</s>
 * <s>[i3lock-color-git](https://github.com/PandorasFox/i3lock-color) - this is a fork of i3lock-color that is kept up to date with i3lock</s>
-* <s>[i3lock-fancy-git](https://github.com/meskarune/i3lock-fancy) - this is a fork of i3lock-fancy that is kept up to date with i3lock</s>
+* [i3lock-fancy-git](https://github.com/meskarune/i3lock-fancy) - this is a fork of i3lock-fancy that is kept up to date with i3lock
 * imagemagick
 * bash
 * awk
@@ -100,12 +100,7 @@ Systemd Unit file example (edit for your own use):
 
 Multiple Monitors
 -----------------
-There is a branch called dual monitor with support for multiple monitors.
-(it is currently out of date compared to the main locker, I need to update
-it with all the new features) This branch uses a grey icon and text with
-outlines to make it visible on light and dark backgrounds (though it looks
-better on dark backgrounds). I am still working to get it looking just right
-right. The script is usable now, but it's under developement and things may change.
+Not supported currently.
 
 Static image
 ------------

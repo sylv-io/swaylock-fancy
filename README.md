@@ -68,8 +68,10 @@ The lock screen in action:
 
 To use this script you can set a hotkey in your window manager to run the lock
 command. This is what it would look like in your sway config:
+```
     exec swayidle -w \
         timeout 300 'swaylock-fancy' \
         timeout 600 'swaymsg "output * dpms off"' \
             resume 'swaymsg "output * dpms on"' \
         before-sleep 'swaylock-fancy'
+```

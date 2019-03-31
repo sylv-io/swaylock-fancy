@@ -32,7 +32,7 @@ Then change to the directory and run make.
     cd swaylock-fancy
     sudo make install
 
-### The following distro's have packages you can use to install:
+### The following distros have packages you can use to install:
 * Arch Linux: https://aur.archlinux.org/packages/swaylock-fancy-git/
 
 Usage
@@ -57,7 +57,7 @@ Usage
                          Note: this option will not lock the screen, it displays
                          the list and exits immediately.
 
-example: ```swaylock-fancy -gpf Comic-Sans-MS```
+Example: ```swaylock-fancy -gpf Comic-Sans-MS```
 
 Extras
 ------
@@ -66,26 +66,10 @@ The lock screen in action:
 
 ![lockscreen animation](https://raw.githubusercontent.com/meskarune/i3lock-fancy/master/action.gif)
 
-To use this script you can set a hotkey in your window manager to run the lock command,
-set xautolock to run at boot, or use a systemd script to either lock on suspend or run xautolock.
-
-xautolock is a utility to automatically lock the screen after a set time. It also
-supports hot corners.
-
-Systemd Unit file example (edit for your own use):
-
-    [Unit]
-    Description=Lock the screen automatically after a timeout
-
-    [Service]
-    Type=simple
-    User=meskarune
-    Environment=DISPLAY=:0
-    ExecStart=/usr/bin/xautolock -time 5 -locker /usr/bin/swaylock-fancy -detectsleep
-
-    [Install]
-    WantedBy=graphical.target
-
-Multiple Monitors
------------------
-Work in progress
+To use this script you can set a hotkey in your window manager to run the lock
+command. This is what it would look like in your sway config:
+    exec swayidle -w \
+        timeout 300 'swaylock-fancy' \
+        timeout 600 'swaymsg "output * dpms off"' \
+            resume 'swaymsg "output * dpms on"' \
+        before-sleep 'swaylock-fancy'

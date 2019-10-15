@@ -101,9 +101,23 @@ do
         if [[ $color -gt $value ]]; then #white background image and black text
             bw="black"
             icon="/usr/share/swaylock-fancy/icons/lockdark.png"
+    param=("--inside-color=0000001c" "--ring-color=0000003e" \
+        "--line-color=00000000" "--key-hl-color=ffffff80" "--ring-ver-color=ffffff00" \
+        "--separator-color=22222260" "--inside-ver-color=ff99441c" \
+        "--ring-clear-color=ff994430" "--inside-clear-color=ff994400" \
+        "--ring-wrong-color=ffffff55" "--inside-wrong-color=ffffff1c" "--text-ver-color=00000000" \
+        "--text-wrong-color=00000000" "--text-caps-lock-color=00000000" "--text-clear-color=00000000" \
+        "--line-clear-color=00000000" "--line-wrong-color=00000000" "--line-ver-color=00000000")
         else #black
             bw="white"
             icon="/usr/share/swaylock-fancy/icons/lock.png"
+    param=("--inside-color=ffffff1c" "--ring-color=ffffff3e" \
+        "--line-color=ffffff00" "--key-hl-color=00000080" "--ring-ver-color=00000000" \
+        "--separator-color=22222260" "--inside-ver-color=ff99441c" \
+        "--ring-clear-color=ff994430" "--inside-clear-color=ff994400" \
+        "--ring-wrong-color=00000055" "--inside-wrong-color=0000001c" "--text-ver-color=00000000" \
+        "--text-wrong-color=00000000" "--text-caps-lock-color=00000000" "--text-clear-color=00000000" \
+        "--line-clear-color=00000000" "--line-wrong-color=00000000" "--line-ver-color=00000000")
         fi
     fi
 

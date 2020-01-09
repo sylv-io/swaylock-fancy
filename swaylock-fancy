@@ -3,6 +3,8 @@
 # Dependencies: imagemagick, grim (optional)
 set -o errexit -o noclobber -o nounset
 
+PREFIX="${PREFIX:-$(pwd)}"
+
 hue=(-level "0%,100%,0.6")
 effect=(-filter Gaussian -resize 20% -define "filter:sigma=1.5" -resize 500.5%)
 # default system sans-serif font
@@ -109,10 +111,10 @@ do
     if (( $i == 0 )); then
         if [[ $color -gt $value ]]; then #white background image and black text
             bw="black"
-            icon="/usr/share/swaylock-fancy/icons/lockdark.png"
+            icon="$PREFIX/icons/lockdark.png"
         else #black
             bw="white"
-            icon="/usr/share/swaylock-fancy/icons/lock.png"
+            icon="$PREFIX/icons/lock.png"
         fi
     fi
 

@@ -22,17 +22,25 @@ while read -r line; do
 done <<< "$poutputs"
 
 options="Options:
-    -h, --help       This help menu.
+    -h, --help                          This help menu.
 
-    -d, --desktop    Attempt to minimize all windows before locking.
+    -d, --desktop                       Attempt to minimize all windows before locking.
 
-    -g, --greyscale  Set background to greyscale instead of color.
+    -g, --greyscale                     Set background to greyscale instead of color.
 
-    -p, --pixelate   Pixelate the background instead of blur, runs faster.
+    -p, --pixelate                      Pixelate the background instead of blur, runs faster.
 
-    -f <fontname>, --font <fontname>  Set a custom font.
+    -f <fontname>, --font <fontname>    Set a custom font.
 
-    -t <text>, --text <text> Set a custom text prompt.
+    -t <text>, --text <text>            Set a custom text prompt.
+
+    -F, --show-failed-attempts          Show the number of failed authentication attempts.
+
+    -e, --ignore-empty-password         Don't validate empty passwords.
+
+    -L, --disable-caps-lock-text        Disable the Caps Lock Text.
+
+    -K, --hide-keyboard-layout          Force hiding the current xkb layout while typing.
 
     -l, --listfonts  Display a list of possible fonts for use with -f/--font.
                      Note: this option will not lock the screen, it displays
@@ -41,7 +49,7 @@ options="Options:
 # move pipefail down as for some reason "convert -list font" returns 1
 set -o pipefail
 trap 'rm -f "${images[*]}"' EXIT
-temp="$(getopt -o :hdnpglt:f: -l desktop,help,listfonts,nofork,pixelate,greyscale,text:,font: --name "$0" -- "$@")"
+temp="$(getopt -o :hdnpgltFeLK:f: -l desktop,help,listfonts,nofork,show-failed-attempts,ignore-empty-password,disable-caps-lock-text,hide-keyboard-layout,pixelate,greyscale,text:,font: --name "$0" -- "$@")"
 eval set -- "$temp"
 
 # l10n support
@@ -82,6 +90,7 @@ while true ; do
 	    convert -list font | awk -F: '/Font: / { print $2 }' | sort -du | command -- ${PAGER:-less}
 	    exit 0 ;;
 	-n|--nofork) swaylock_cmd+=(--nofork) ; shift ;;
+        -F|-e|-K|-L|--show-failed-attempts|--ignore-empty-password|--disable-caps-lock-text|--hide-keyboard-layout) swaylock_cmd+=("$1"); shift ;;
         --) shift; break ;;
         *) echo "error" ; exit 1 ;;
     esac

@@ -51,7 +51,7 @@ options="Options:
 # move pipefail down as for some reason "convert -list font" returns 1
 set -o pipefail
 trap 'rm -f "${images[*]}"' EXIT
-temp="$(getopt -o :hdnpgltFeLK:f: -l desktop,help,listfonts,nofork,show-failed-attempts,ignore-empty-password,disable-caps-lock-text,hide-keyboard-layout,pixelate,greyscale,text:,font: --name "$0" -- "$@")"
+temp="$(getopt -o :hdnpglt:FeLK:f: -l desktop,help,listfonts,nofork,show-failed-attempts,ignore-empty-password,disable-caps-lock-text,hide-keyboard-layout,pixelate,greyscale,text:,font: --name "$0" -- "$@")"
 eval set -- "$temp"
 
 # l10n support

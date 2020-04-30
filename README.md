@@ -3,7 +3,7 @@ swaylock-fancy
 
 This is an swaylock bash script that takes a screenshot of the desktop, blurs the background and adds a lock icon and text
 
-![screen shot of lockscreen](https://raw.githubusercontent.com/meskarune/i3lock-fancy/master/screenshot.png)
+![screen shot of lockscreen](https://raw.githubusercontent.com/Big-B/swaylock-fancy/master/screenshot.png)
 
 Dependencies
 ------------
@@ -64,7 +64,7 @@ Extras
 
 The lock screen in action:
 
-![lockscreen animation](https://raw.githubusercontent.com/meskarune/i3lock-fancy/master/action.gif)
+![lockscreen animation](https://raw.githubusercontent.com/Big-B/swaylock-fancy/master/action.gif)
 
 To use this script you can set a hotkey in your window manager to run the lock
 command. This is what it would look like in your sway config:

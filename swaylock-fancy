@@ -17,7 +17,7 @@ declare -a outputs
 declare -a images
 
 # parse the json swaymsg for outputs
-poutputs=$(swaymsg -t get_outputs | grep name | sed 's/.*:.*\"\(.*\)\".*/\1/')
+poutputs=$(swaymsg -t get_outputs | jq -r '.[] | select(.active != false) | .name')
 while read -r line; do
     outputs+=($line)
     images+=($(mktemp --suffix=.png))

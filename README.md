@@ -13,6 +13,7 @@ Dependencies
 * imagemagick
 * bash
 * awk
+* jq
 * util-linux
 * grim
 
